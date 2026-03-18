@@ -3,21 +3,23 @@ package com.example.Capgi_BankManagementSystem.entity;
 
 import com.example.Capgi_BankManagementSystem.enums.AccountType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer accountId;
     private AccountType accountType;
     private double balance;
-
+    private Boolean active = true;
     @ManyToOne
     private Customer customer;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
