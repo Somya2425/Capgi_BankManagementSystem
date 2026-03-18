@@ -19,6 +19,8 @@ public class Account {
     private Customer customer;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Loan> loans;
+
+
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 }
