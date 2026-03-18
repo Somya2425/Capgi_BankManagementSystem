@@ -1,6 +1,5 @@
 package com.example.Capgi_BankManagementSystem.util;
 
-
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +12,17 @@ public class MapperUtil {
         this.modelMapper = modelMapper;
     }
 
-    public <T> T map(Object source, Class<T> target) {
-        return modelMapper.map(source, target);
+    /**
+     * Convert Source → Destination
+     */
+    public <S, D> D map(S source, Class<D> destinationClass) {
+        return modelMapper.map(source, destinationClass);
+    }
+
+    /**
+     * Update existing object (PATCH safe)
+     */
+    public <S, D> void map(S source, D destination) {
+        modelMapper.map(source, destination);
     }
 }

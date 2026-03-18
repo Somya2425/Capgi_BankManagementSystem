@@ -1,17 +1,23 @@
 package com.example.Capgi_BankManagementSystem.dto.response;
-import lombok.*;
-import org.springframework.http.HttpStatus;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+/**
+ * Standard error response for all exceptions
+ */
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class ErrorResponse {
 
-    private String apiPath;
-    private HttpStatus status;
-    private String errorMessage;
-    private LocalDateTime errorTime;
+    private String apiPath;        // API endpoint
+    private String status;         // HTTP status code
+    private String errorMessage;   // Error message
+    private LocalDateTime errorTime; // Timestamp
 }
