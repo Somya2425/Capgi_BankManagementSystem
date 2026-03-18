@@ -3,11 +3,14 @@ package com.example.Capgi_BankManagementSystem.entity;
 
 import com.example.Capgi_BankManagementSystem.enums.AccountType;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-
+@Getter
+@Setter
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
