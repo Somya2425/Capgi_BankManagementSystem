@@ -1,4 +1,5 @@
 package com.example.Capgi_BankManagementSystem.enums;
 
-public class LoanStatus {
+public enum LoanStatus {
+    APPROVED, REJECTED, PENDING
 }
