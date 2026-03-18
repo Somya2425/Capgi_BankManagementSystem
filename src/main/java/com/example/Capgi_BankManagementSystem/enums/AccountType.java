@@ -1,4 +1,5 @@
 package com.example.Capgi_BankManagementSystem.enums;
 
-public class AccountType {
+public enum AccountType {
+    SAVINGS,CURRENT;
 }
