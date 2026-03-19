@@ -9,24 +9,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-<<<<<<< HEAD
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class Account {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer accountId;
-    private AccountType accountType;
-    private double balance;
-    private Boolean active = true;
-    @ManyToOne
-    private Customer customer;
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Loan> loans;
-
-
-=======
 @Table(name = "accounts")
 public class Account {
 
@@ -51,7 +33,6 @@ public class Account {
     /**
      * One account → Many transactions
      */
->>>>>>> rollback/test-version
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private List<Transaction> transactions;
 

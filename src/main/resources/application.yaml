@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bankdb
+    url: jdbc:postgresql://localhost:5432/SpringDB
     username: postgres
-    password: Aniket620@
+    password: Vishal@2020
     driver-class-name: org.postgresql.Driver
 
   jpa:
