@@ -10,17 +10,24 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
+@Table(name = "transactions")
 public class Transaction {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer txnId;
 
     @Enumerated(EnumType.STRING)
     private TransactionType type;
 
     private double amount;
+
     private LocalDateTime date;
 
-    @ManyToOne
+    /**
+     * Many transactions → One account
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
     private Account account;
 }

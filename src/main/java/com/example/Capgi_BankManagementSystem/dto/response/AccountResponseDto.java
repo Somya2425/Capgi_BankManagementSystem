@@ -1,5 +1,6 @@
 package com.example.Capgi_BankManagementSystem.dto.response;
 
+<<<<<<< HEAD
 import com.example.Capgi_BankManagementSystem.enums.AccountType;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,3 +16,17 @@ public class AccountResponseDto {
     private Boolean active;
     private Integer customerId;
 }
+=======
+import lombok.Data;
+
+@Data
+public class AccountResponseDto {
+
+    private Integer id;
+    private String type;
+    private double balance;
+    private boolean active;
+
+    private Integer customerId;
+}
+>>>>>>> rollback/test-version

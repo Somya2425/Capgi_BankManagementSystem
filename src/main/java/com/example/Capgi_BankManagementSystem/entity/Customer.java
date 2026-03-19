@@ -1,13 +1,15 @@
 package com.example.Capgi_BankManagementSystem.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -15,8 +17,13 @@ public class Customer {
     private Integer id;
 
     private String name;
+
+    @Column(unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    /**
+     * One customer → Many accounts
+     */
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Account> accounts;
 }
