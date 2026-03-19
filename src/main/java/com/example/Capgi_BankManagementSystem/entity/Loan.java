@@ -2,20 +2,28 @@ package com.example.Capgi_BankManagementSystem.entity;
 
 import com.example.Capgi_BankManagementSystem.enums.LoanStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
+@Table(name = "loans")
 public class Loan {
 
     @Id
-    private String loanId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer loanId;
 
     private double amount;
 
     @Enumerated(EnumType.STRING)
     private LoanStatus status;
 
-    @ManyToOne
+    /**
+     * Many loans → One account
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
     private Account account;
 }

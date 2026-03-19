@@ -1,16 +1,33 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/bank_db
-    username: "postgres"
-    password: "Aniket620@"
+    url: jdbc:postgresql://localhost:5432/bankdb
+    username: postgres
+    password: Aniket620@
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update   # dev: update | prod: validate
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+    open-in-view: false   # 🔥 IMPORTANT (avoid performance issues)
+
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
 
 server:
   port: 8080
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
